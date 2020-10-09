@@ -3,6 +3,7 @@
 html,
 body {
   width: 100%;
+  min-width: 1096px;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -15,7 +16,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  font-family: 'Times New Roman', Times, serif;
+  font-family: serif;
 
   background: no-repeat url('../images/water_wave_bg.gif');
   background-size: cover;
@@ -31,5 +32,74 @@ body {
 }
 
 #container > h1 {
+  text-align: center;
+}
+
+/*导航栏*/
+#navbar {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 2%;
+}
+
+.tasks-nav-card {
+  flex-basis: 22%;
+  display: flex;
+  justify-content: space-between;
+  
+  height: 80px;
+  padding: 0 0.5rem;
+
+  border-radius: 5px;
+  background-color: rgb(165, 164, 163);
+}
+
+#all-tasks-card {
+  background: no-repeat center/cover rgba(0, 0, 0, 0.3) url('../images/all_tasks_bg.jpg');
+  background-blend-mode: multiply;
+}
+
+#active-tasks-card {
+  background: no-repeat center/cover rgba(0, 0, 0, 0.3) url('../images/active_task_bg.svg');
+  background-blend-mode: multiply;
+}
+
+#padding-tasks-card {
+  background: no-repeat center/cover rgba(0, 0, 0, 0.3) url('../images/padding_tasks_bg.svg');
+  background-blend-mode: multiply;
+}
+
+#closed-tasks-card {
+  background: no-repeat center/cover rgba(0, 0, 0, 0.3) url('../images/closed_tasks_bg.svg');
+  background-blend-mode: multiply;
+}
+
+.tasks-ka-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-kind,
+.tasks-amount,
+.tasks-percent {
+  color: #fff;
+}
+
+.tasks-kind {
+  margin: 0.5rem 0 0.8rem;
+}
+
+.tasks-amount {
+  font-size: 2rem;
+}
+
+.tasks-percent {
+  flex-grow: 1;
+
+  padding: 0.8rem 0;
+
+  font-size: 3rem;
   text-align: center;
 }

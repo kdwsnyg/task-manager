@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      Task Manager
-    </title>
-    <link rel="stylesheet" type="text/css" href="./styles/index.css" />
-    <script type="text/javascript" src="./js/index.js"></script>
-    <script type="text/javascript" src="./js/data.js"></script>
-  </head>
-  <body>
-    <!-- you need to implement -->
-    <main id="container">
-      <h1>Manage Your Tasks</h1>
-    </main>
-  </body>
+
+<head>
+  <title>
+    Task Manager
+  </title>
+  <link rel="stylesheet" type="text/css" href="./styles/index.css" />
+  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/data.js"></script>
+</head>
+
+<body>
+  <!-- you need to implement -->
+  <main id="container">
+    <h1>Manage Your Tasks</h1>
+    <nav id="navbar">
+      <section id="all-tasks-card" class="tasks-nav-card">
+        <div class="tasks-ka-wrapper">
+          <h3 class="tasks-kind">All Tasks</h3>
+          <div class="tasks-amount">0</div>
+        </div>
+      </section>
+      <section id="active-tasks-card" class="tasks-nav-card">
+        <div class="tasks-ka-wrapper">
+          <h3 class="tasks-kind">Active Tasks</h3>
+          <div class="tasks-amount">0</div>
+        </div>
+        <div class="tasks-percent">0%</div>
+      </section>
+      <section id="padding-tasks-card" class="tasks-nav-card">
+        <div class="tasks-ka-wrapper">
+          <h3 class="tasks-kind">Padding Tasks</h3>
+          <div class="tasks-amount">0</div>
+        </div>
+        <div class="tasks-percent">0%</div>
+      </section>
+      <section id="closed-tasks-card" class="tasks-nav-card">
+        <div class="tasks-ka-wrapper">
+          <h3 class="tasks-kind">Closed Tasks</h3>
+          <div class="tasks-amount">0</div>
+        </div>
+        <div class="tasks-percent">0%</div>
+      </section>
+    </nav>
+  </main>
+</body>
+
 </html>
