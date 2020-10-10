@@ -12,30 +12,33 @@
 
 <body>
   <!-- you need to implement -->
-  <main id="container">
+  <main id="container" class="container">
+    <!--标题-->
     <h1>Manage Your Tasks</h1>
-    <nav id="navbar">
-      <section id="all-tasks-card" class="tasks-nav-card">
+
+    <!--导航栏-->
+    <nav id="navbar" class="navbar">
+      <section id="allTasksCard" class="tasks-nav-card all-tasks-card">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">All Tasks</h3>
           <div class="tasks-amount">0</div>
         </div>
       </section>
-      <section id="active-tasks-card" class="tasks-nav-card">
+      <section id="activeTasksCard" class="tasks-nav-card active-tasks-card">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">Active Tasks</h3>
           <div class="tasks-amount">0</div>
         </div>
         <div class="tasks-percent">0%</div>
       </section>
-      <section id="padding-tasks-card" class="tasks-nav-card">
+      <section id="paddingTasksCard" class="tasks-nav-card padding-tasks-card">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">Padding Tasks</h3>
           <div class="tasks-amount">0</div>
         </div>
         <div class="tasks-percent">0%</div>
       </section>
-      <section id="closed-tasks-card" class="tasks-nav-card">
+      <section id="closedTasksCard" class="tasks-nav-card padding-tasks-card">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">Closed Tasks</h3>
           <div class="tasks-amount">0</div>
@@ -43,6 +46,149 @@
         <div class="tasks-percent">0%</div>
       </section>
     </nav>
+
+    <!--任务展示区-->
+    <div id="tasksContainer" class="tasks-container">
+      <!--列表标题与增添、查找工具区-->
+      <section id="tasklistTitleWrapper" class="tasklist-title-wrapper">
+        <h2>Your Tasks List</h2>
+        <div class="tools">
+          <input id="searchText" class="search-text" type="text" placeholder="Please enter task name to search">
+          <button id="searchBtn" class="tools-btn">
+            <img src="images/search.svg" alt="search">
+          </button>
+          <button id="addBtn" class="tools-btn add-btn">
+            <img src="images/add.svg" alt="add">
+          </button>
+        </div>
+      </section>
+
+      <!--任务展示列表-->
+      <section class="task-list">
+        <table class="task-wrapper">
+          <thead class="task-header">
+            <tr class="task-row">
+              <th class="task-num-col">#</th>
+              <th class="task-name-col">
+                <span>Task Name</span>
+                <span class="sort-btn-wrapper">
+                  <span id="sortNameUpBtn" class="sort-btn sort-up-btn"></span>
+                  <span id="sortNameDownBtn" class="sort-btn sort-down-btn"></span>
+                </span>
+              </th>
+              <th class="task-des-col">Task Description</th>
+              <th class="task-dead-col">
+                <span>Deadline</span>
+                <span class="sort-btn-wrapper">
+                  <span id="sortDeadUpBtn" class="sort-btn sort-up-btn"></span>
+                  <span id="sortDeadDownBtn" class="sort-btn sort-down-btn"></span>
+                </span>
+              </th>
+              <th class="task-status-col">
+                <span>Status</span>
+                <span class="sort-btn-wrapper">
+                  <span id="sortStatusUpBtn" class="sort-btn sort-up-btn"></span>
+                  <span id="sortStatusDownBtn" class="sort-btn sort-down-btn"></span>
+                </span>
+              </th>
+              <th class="task-opera-col">Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="task-num-col">1</td>
+              <td class="task-name-col">Learning Javascript</td>
+              <td class="task-des-col">From now, you will learn Javascript. About 3 hours a week.</td>
+              <td class="task-dead-col">2020-12-03</td>
+              <td class="task-status-col status-act">Active</td>
+              <td class="task-opera-col">
+                <button class="operate-row-btn">
+                  <img src="images/delete.svg" alt="delete">
+                </button>
+                <button class="operate-row-btn">
+                  <img src="images/update.svg" alt="update">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="task-num-col">2</td>
+              <td class="task-name-col">Learning Node</td>
+              <td class="task-des-col">The API reference documentation provides detailed information about a function and etc.</td>
+              <td class="task-dead-col">2020-12-03</td>
+              <td class="task-status-col status-pad">Padding</td>
+              <td class="task-opera-col">
+                <button class="operate-row-btn">
+                  <img src="images/delete.svg" alt="delete">
+                </button>
+                <button class="operate-row-btn">
+                  <img src="images/update.svg" alt="update">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="task-num-col">3</td>
+              <td class="task-name-col">Learning React</td>
+              <td class="task-des-col">React makes it painless to create interactive UIs. Design simple views for each thing and etc.</td>
+              <td class="task-dead-col">2020-12-03</td>
+              <td class="task-status-col status-close">Closed</td>
+              <td class="task-opera-col">
+                <button class="operate-row-btn">
+                  <img src="images/delete.svg" alt="delete">
+                </button>
+                <button class="operate-row-btn">
+                  <img src="images/update.svg" alt="update">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="task-num-col">4</td>
+              <td class="task-name-col">Learning Javascript</td>
+              <td class="task-des-col">From now, you will learn Javascript. About 3 hours a week.</td>
+              <td class="task-dead-col">2020-12-03</td>
+              <td class="task-status-col status-act">Active</td>
+              <td class="task-opera-col">
+                <button class="operate-row-btn">
+                  <img src="images/delete.svg" alt="delete">
+                </button>
+                <button class="operate-row-btn">
+                  <img src="images/update.svg" alt="update">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="task-num-col">5</td>
+              <td class="task-name-col">Learning Node</td>
+              <td class="task-des-col">The API reference documentation provides detailed information about a function and etc.</td>
+              <td class="task-dead-col">2020-12-03</td>
+              <td class="task-status-col status-pad">Padding</td>
+              <td class="task-opera-col">
+                <button class="operate-row-btn">
+                  <img src="images/delete.svg" alt="delete">
+                </button>
+                <button class="operate-row-btn">
+                  <img src="images/update.svg" alt="update">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="task-num-col">6</td>
+              <td class="task-name-col">Learning React</td>
+              <td class="task-des-col">React makes it painless to create interactive UIs. Design simple views for each thing and etc.</td>
+              <td class="task-dead-col">2020-12-03</td>
+              <td class="task-status-col status-close">Closed</td>
+              <td class="task-opera-col">
+                <button class="operate-row-btn">
+                  <img src="images/delete.svg" alt="delete">
+                </button>
+                <button class="operate-row-btn">
+                  <img src="images/update.svg" alt="update">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
   </main>
 </body>
 
