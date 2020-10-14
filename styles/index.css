@@ -10,6 +10,12 @@ body {
   overflow: hidden;
 }
 
+.btn {
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
 /*网页背景*/
 body {
   display: flex;
@@ -53,6 +59,7 @@ body {
 
   border-radius: 5px;
   background-color: rgb(165, 164, 163);
+  cursor: pointer;
 }
 
 .all-tasks-card {
@@ -131,8 +138,6 @@ body {
   border: 1px solid #347A6B;
 
   border-radius: 20px;
-  background: none;
-  cursor: pointer;
 }
 
 .tools-btn img {
@@ -166,7 +171,7 @@ body {
 }
 
 .task-row {
-  margin: 2px;
+  border-bottom: 1px solid #C4C7CA;
 }
 
 .task-num-col {
@@ -200,21 +205,17 @@ body {
 }
 
 .task-status-col {
-  width: 12%;
+  width: 10%;
   text-align: left;
 }
 
 .task-opera-col {
-  width: 8%;
+  width: 10%;
   text-align: center;
 }
 
 .operate-row-btn  {
   border: none;
-
-  cursor: pointer;
-  outline: none;
-  background: none;
 }
 
 .operate-row-btn > img {
@@ -233,9 +234,6 @@ body {
   border: 7px solid #91999C;
   border-left-color: rgba(0, 0, 0, 0);
   border-right-color: rgba(0, 0, 0, 0);
-
-  outline: none;
-  cursor: pointer;
 }
 
 .sort-up-btn {

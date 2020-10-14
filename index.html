@@ -6,13 +6,14 @@
     Task Manager
   </title>
   <link rel="stylesheet" type="text/css" href="./styles/index.css" />
+  <link rel="stylesheet" type="text/css" href="./styles/model.css" />
   <script type="text/javascript" src="./js/index.js"></script>
   <script type="text/javascript" src="./js/data.js"></script>
+  <script type="text/javascript" src="./js/model.js"></script>
 </head>
 
-<body>
-  <!-- you need to implement -->
-  <main id="container" class="container">
+<body onload="showAllTasks()">
+  <main id="container" class="container" style="overflow: scroll;">
     <!--标题-->
     <h1>Manage Your Tasks</h1>
 
@@ -54,10 +55,10 @@
         <h2>Your Tasks List</h2>
         <div class="tools">
           <input id="searchText" class="search-text" type="text" placeholder="Please enter task name to search">
-          <button id="searchBtn" class="tools-btn">
+          <button id="searchBtn" class="btn tools-btn">
             <img src="images/search.svg" alt="search">
           </button>
-          <button id="addBtn" class="tools-btn add-btn">
+          <button class="btn tools-btn add-btn" onclick="showAddTaskPanel()">
             <img src="images/add.svg" alt="add">
           </button>
         </div>
@@ -67,129 +68,88 @@
       <section class="task-list">
         <table class="task-wrapper">
           <thead class="task-header">
-            <tr class="task-row">
+            <tr>
               <th class="task-num-col">#</th>
               <th class="task-name-col">
                 <span>Task Name</span>
                 <span class="sort-btn-wrapper">
-                  <span id="sortNameUpBtn" class="sort-btn sort-up-btn"></span>
-                  <span id="sortNameDownBtn" class="sort-btn sort-down-btn"></span>
+                  <span id="sortNameUpBtn" class="btn sort-btn sort-up-btn"></span>
+                  <span id="sortNameDownBtn" class="btn sort-btn sort-down-btn"></span>
                 </span>
               </th>
               <th class="task-des-col">Task Description</th>
               <th class="task-dead-col">
                 <span>Deadline</span>
                 <span class="sort-btn-wrapper">
-                  <span id="sortDeadUpBtn" class="sort-btn sort-up-btn"></span>
-                  <span id="sortDeadDownBtn" class="sort-btn sort-down-btn"></span>
+                  <span id="sortDeadUpBtn" class="btn sort-btn sort-up-btn"></span>
+                  <span id="sortDeadDownBtn" class="btn sort-btn sort-down-btn"></span>
                 </span>
               </th>
               <th class="task-status-col">
                 <span>Status</span>
                 <span class="sort-btn-wrapper">
-                  <span id="sortStatusUpBtn" class="sort-btn sort-up-btn"></span>
-                  <span id="sortStatusDownBtn" class="sort-btn sort-down-btn"></span>
+                  <span id="sortStatusUpBtn" class="btn sort-btn sort-up-btn"></span>
+                  <span id="sortStatusDownBtn" class="btn sort-btn sort-down-btn"></span>
                 </span>
               </th>
               <th class="task-opera-col">Operation</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr class="task-row">
               <td class="task-num-col">1</td>
               <td class="task-name-col">Learning Javascript</td>
               <td class="task-des-col">From now, you will learn Javascript. About 3 hours a week.</td>
               <td class="task-dead-col">2020-12-03</td>
               <td class="task-status-col status-act">Active</td>
               <td class="task-opera-col">
-                <button class="operate-row-btn">
+                <button class="btn operate-row-btn">
                   <img src="images/delete.svg" alt="delete">
                 </button>
-                <button class="operate-row-btn">
+                <button class="btn operate-row-btn">
                   <img src="images/update.svg" alt="update">
                 </button>
               </td>
-            </tr>
-            <tr>
-              <td class="task-num-col">2</td>
-              <td class="task-name-col">Learning Node</td>
-              <td class="task-des-col">The API reference documentation provides detailed information about a function and etc.</td>
-              <td class="task-dead-col">2020-12-03</td>
-              <td class="task-status-col status-pad">Padding</td>
-              <td class="task-opera-col">
-                <button class="operate-row-btn">
-                  <img src="images/delete.svg" alt="delete">
-                </button>
-                <button class="operate-row-btn">
-                  <img src="images/update.svg" alt="update">
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="task-num-col">3</td>
-              <td class="task-name-col">Learning React</td>
-              <td class="task-des-col">React makes it painless to create interactive UIs. Design simple views for each thing and etc.</td>
-              <td class="task-dead-col">2020-12-03</td>
-              <td class="task-status-col status-close">Closed</td>
-              <td class="task-opera-col">
-                <button class="operate-row-btn">
-                  <img src="images/delete.svg" alt="delete">
-                </button>
-                <button class="operate-row-btn">
-                  <img src="images/update.svg" alt="update">
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="task-num-col">4</td>
-              <td class="task-name-col">Learning Javascript</td>
-              <td class="task-des-col">From now, you will learn Javascript. About 3 hours a week.</td>
-              <td class="task-dead-col">2020-12-03</td>
-              <td class="task-status-col status-act">Active</td>
-              <td class="task-opera-col">
-                <button class="operate-row-btn">
-                  <img src="images/delete.svg" alt="delete">
-                </button>
-                <button class="operate-row-btn">
-                  <img src="images/update.svg" alt="update">
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="task-num-col">5</td>
-              <td class="task-name-col">Learning Node</td>
-              <td class="task-des-col">The API reference documentation provides detailed information about a function and etc.</td>
-              <td class="task-dead-col">2020-12-03</td>
-              <td class="task-status-col status-pad">Padding</td>
-              <td class="task-opera-col">
-                <button class="operate-row-btn">
-                  <img src="images/delete.svg" alt="delete">
-                </button>
-                <button class="operate-row-btn">
-                  <img src="images/update.svg" alt="update">
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="task-num-col">6</td>
-              <td class="task-name-col">Learning React</td>
-              <td class="task-des-col">React makes it painless to create interactive UIs. Design simple views for each thing and etc.</td>
-              <td class="task-dead-col">2020-12-03</td>
-              <td class="task-status-col status-close">Closed</td>
-              <td class="task-opera-col">
-                <button class="operate-row-btn">
-                  <img src="images/delete.svg" alt="delete">
-                </button>
-                <button class="operate-row-btn">
-                  <img src="images/update.svg" alt="update">
-                </button>
-              </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </section>
     </div>
   </main>
+
+  <!--任务面板模板-->
+  <div id="model" class="model">
+    <div class="panel">
+      <header>
+        <img src="images/model_add_icon.svg" alt="icon">
+        <h2 class="panel-title">New A Task</h2>
+        <button class="model-cancel-btn" onclick="closeTaskPanel()">
+          <img src="images/model_cancel_icon.svg" alt="icon">
+        </button>
+      </header>
+      <section class="task-inform-wrapper">
+        <form action="">
+          <div class="task-inform">
+            <label for="taskName">Name</label>
+            <input id="taskName" class="task-name-text" type="text" name="taskName" required>
+          </div>
+          <div class="task-inform">
+            <label for="taskDeadline">Deadline</label>
+            <input id="taskDeadline" class="task-dead-text" type="text" name="taskDeadline" required>
+          </div>
+          <div class="task-inform">
+            <label for="taskDescript">Description</label>
+            <textarea id="taskDescript" class="task-desc-text" name="taskDescript" rows="5" maxlength="200" 
+            placeholder="Please enter task descript, Maximum 200 characters" required></textarea>
+          </div>
+        </form>
+      </section>
+      <footer class="panel-footer">
+        <button class="btn panel-footer-btn" onclick="closeTaskPanel()">取消</button>
+        <button class="btn panel-footer-btn model-confirm-btn" onclick="addNewTask()">确认</button>
+      </footer>
+    </div>
+  </div>
 </body>
 
 </html>
