@@ -7,13 +7,13 @@
   </title>
   <link rel="stylesheet" type="text/css" href="./styles/index.css" />
   <link rel="stylesheet" type="text/css" href="./styles/model.css" />
-  <script type="text/javascript" src="./js/index.js"></script>
   <script type="text/javascript" src="./js/data.js"></script>
+  <script type="text/javascript" src="./js/index.js"></script>
   <script type="text/javascript" src="./js/model.js"></script>
 </head>
 
 <body onload="showAllTasks()">
-  <main id="container" class="container" style="overflow: scroll;">
+  <main id="container" class="container">
     <!--标题-->
     <h1>Manage Your Tasks</h1>
 
@@ -58,7 +58,7 @@
           <button id="searchBtn" class="btn tools-btn">
             <img src="images/search.svg" alt="search">
           </button>
-          <button class="btn tools-btn add-btn" onclick="showAddTaskPanel()">
+          <button class="btn tools-btn add-btn" onclick="showTaskPanel()">
             <img src="images/add.svg" alt="add">
           </button>
         </div>
@@ -121,14 +121,14 @@
   <div id="model" class="model">
     <div class="panel">
       <header>
-        <img src="images/model_add_icon.svg" alt="icon">
-        <h2 class="panel-title">New A Task</h2>
+        <img id="panelIcon" src="images/model_add_icon.svg" alt="icon">
+        <h2 id="panelTitle" class="panel-title">New A Task</h2>
         <button class="model-cancel-btn" onclick="closeTaskPanel()">
           <img src="images/model_cancel_icon.svg" alt="icon">
         </button>
       </header>
       <section class="task-inform-wrapper">
-        <form action="">
+        <form id="taskForm" action="">
           <div class="task-inform">
             <label for="taskName">Name</label>
             <input id="taskName" class="task-name-text" type="text" name="taskName" required>
@@ -137,16 +137,26 @@
             <label for="taskDeadline">Deadline</label>
             <input id="taskDeadline" class="task-dead-text" type="text" name="taskDeadline" required>
           </div>
+          <div id="statusContainer" class="task-inform disappear">
+            <p>Status</p>
+            <input type="radio" id="active" name="status" value="Active" checked>
+            <label for="active">Active</label>
+            <input type="radio" id="padding" name="status" value="Padding">
+            <label for="padding">Padding</label>
+            <input type="radio" id="closed" name="status" value="Closed">
+            <label for="closed">Closed</label>
+          </div>
           <div class="task-inform">
             <label for="taskDescript">Description</label>
             <textarea id="taskDescript" class="task-desc-text" name="taskDescript" rows="5" maxlength="200" 
             placeholder="Please enter task descript, Maximum 200 characters" required></textarea>
           </div>
         </form>
+        <p id="askIfDelete" class="disappear"></p>
       </section>
       <footer class="panel-footer">
         <button class="btn panel-footer-btn" onclick="closeTaskPanel()">取消</button>
-        <button class="btn panel-footer-btn model-confirm-btn" onclick="addNewTask()">确认</button>
+        <button id="confirmBtn" class="btn panel-footer-btn model-confirm-btn" onclick="createTaskItem()">确认</button>
       </footer>
     </div>
   </div>

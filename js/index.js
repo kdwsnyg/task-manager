@@ -1,8 +1,5 @@
 
-//显示新增任务面板
-function showAddTaskPanel() {
-  let model = document.getElementById('model');
-  model.classList.add('model-appear');
+//显示所有任务
+function showAllTasks() {
+  loadAllTasks();
 }
-
-

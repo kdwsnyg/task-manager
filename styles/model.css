@@ -45,7 +45,7 @@
   margin: 20px 0;
 }
 
-.task-inform > label {
+.task-inform > * {
   font-size: 1.3rem;
 }
 
@@ -104,4 +104,12 @@
 .has-no-content {
   border: 1px solid #f00;
   border-radius: 5px;
+}
+
+.status-container-appear {
+  display: block;
+}
+
+.disappear {
+  display: none;
 }
