@@ -59,13 +59,13 @@ function checkTaskInform(...informs) {
 }
 
 //渲染任务列表
-function renderTask(taskObj) {
+function renderTask(taskObj, index) {
   let listRow = document.createElement('tr');
   listRow.classList.add('task-listRow');
 
   let taskNumTd = document.createElement('td');
   taskNumTd.classList.add('task-num-col');
-  taskNumTd.textContent = taskObj.index;
+  taskNumTd.textContent = index;
   listRow.appendChild(taskNumTd);
 
   let taskNameTd = document.createElement('td');
@@ -126,24 +126,6 @@ function renderTask(taskObj) {
   return listRow;
 }
 
-//加载任务项到页面
-function loadTaskItem(task) {
-  let listRow = renderTask(task);
-  let tbody = document.querySelector('tbody');
-  tbody.appendChild(listRow);
-}
-
-//加载所有任务到页面
-function loadAllTasks() {
-  let allTasks = getAllTasks();
-
-  if (allTasks) {
-    getAllTasks().forEach((task) => {
-      loadTaskItem(task);
-    })
-  }
-}
-
 //创建任务项
 function createTaskItem() {
   let taskName = document.getElementById('taskName');
@@ -166,7 +148,8 @@ function createTaskItem() {
 
   saveAllTasks(allTasks);
   closeTaskPanel();
-  loadTaskItem(taskItem);
+  showTaskItem(taskItem);
+  countTaskStatus();
 }
 
 //显示修改任务信息面板
@@ -235,8 +218,8 @@ function updateTask(index) {
     saveAllTasks(allTasks);
     closeTaskPanel();
 
-    clearTaskElements();
-    loadAllTasks();
+    showAllTasks();
+    countTaskStatus();
   }
 }
 
@@ -275,8 +258,8 @@ function deleteTask(index) {
     saveAllTasks(allTasks);
     closeTaskPanel();
     
-    clearTaskElements();
-    loadAllTasks();
+    showAllTasks();
+    countTaskStatus();
   }
 
 }

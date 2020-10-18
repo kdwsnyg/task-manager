@@ -12,39 +12,39 @@
   <script type="text/javascript" src="./js/model.js"></script>
 </head>
 
-<body onload="showAllTasks()">
+<body onload="loadTasksData()">
   <main id="container" class="container">
     <!--标题-->
     <h1>Manage Your Tasks</h1>
 
     <!--导航栏-->
     <nav id="navbar" class="navbar">
-      <section id="allTasksCard" class="tasks-nav-card all-tasks-card">
+      <section class="tasks-nav-card all-tasks-card" onclick="showAllTasks()">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">All Tasks</h3>
-          <div class="tasks-amount">0</div>
+          <div id="allTasksAmount" class="tasks-amount">0</div>
         </div>
       </section>
-      <section id="activeTasksCard" class="tasks-nav-card active-tasks-card">
+      <section class="tasks-nav-card active-tasks-card" onclick="showActiveTasks()">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">Active Tasks</h3>
-          <div class="tasks-amount">0</div>
+          <div id="activeTasksAmount" class="tasks-amount">0</div>
         </div>
-        <div class="tasks-percent">0%</div>
+        <div id="activeTasksPercent" class="tasks-percent">0%</div>
       </section>
-      <section id="paddingTasksCard" class="tasks-nav-card padding-tasks-card">
+      <section class="tasks-nav-card padding-tasks-card" onclick="showPaddingTasks()">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">Padding Tasks</h3>
-          <div class="tasks-amount">0</div>
+          <div id="paddingTasksAmount" class="tasks-amount">0</div>
         </div>
-        <div class="tasks-percent">0%</div>
+        <div id="paddingTasksPercent" class="tasks-percent">0%</div>
       </section>
-      <section id="closedTasksCard" class="tasks-nav-card padding-tasks-card">
+      <section class="tasks-nav-card padding-tasks-card" onclick="showClosedTasks()">
         <div class="tasks-ka-wrapper">
           <h3 class="tasks-kind">Closed Tasks</h3>
-          <div class="tasks-amount">0</div>
+          <div id="closedTasksAmount" class="tasks-amount">0</div>
         </div>
-        <div class="tasks-percent">0%</div>
+        <div id="closedTasksPercent" class="tasks-percent">0%</div>
       </section>
     </nav>
 
@@ -55,7 +55,7 @@
         <h2>Your Tasks List</h2>
         <div class="tools">
           <input id="searchText" class="search-text" type="text" placeholder="Please enter task name to search">
-          <button id="searchBtn" class="btn tools-btn">
+          <button id="searchBtn" class="btn tools-btn" onclick="searchTasks()">
             <img src="images/search.svg" alt="search">
           </button>
           <button class="btn tools-btn add-btn" onclick="showTaskPanel()">
