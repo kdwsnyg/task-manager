@@ -113,3 +113,11 @@
 .disappear {
   display: none;
 }
+
+.sortup-btn-on {
+  border-bottom-color: #555B60;
+}
+
+.sortdown-btn-on {
+  border-top-color: #555B60;
+}

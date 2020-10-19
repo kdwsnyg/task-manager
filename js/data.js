@@ -3,6 +3,6 @@ function saveAllTasks(allTasks) {
 }
 
 function getAllTasks() {
-  return JSON.parse(localStorage.getItem('tasks'));
+  let allTasks =  JSON.parse(localStorage.getItem('tasks'));
+  return allTasks ? allTasks : [];
 }
-

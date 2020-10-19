@@ -54,8 +54,9 @@
       <section id="tasklistTitleWrapper" class="tasklist-title-wrapper">
         <h2>Your Tasks List</h2>
         <div class="tools">
-          <input id="searchText" class="search-text" type="text" placeholder="Please enter task name to search">
-          <button id="searchBtn" class="btn tools-btn" onclick="searchTasks()">
+          <input id="searchText" class="search-text" type="text" placeholder="Please enter task name to search"
+            onkeydown="searchByTypeEnter(event)">
+          <button class="btn tools-btn" onclick="searchTasks()">
             <img src="images/search.svg" alt="search">
           </button>
           <button class="btn tools-btn add-btn" onclick="showTaskPanel()">
@@ -73,23 +74,26 @@
               <th class="task-name-col">
                 <span>Task Name</span>
                 <span class="sort-btn-wrapper">
-                  <span id="sortNameUpBtn" class="btn sort-btn sort-up-btn"></span>
-                  <span id="sortNameDownBtn" class="btn sort-btn sort-down-btn"></span>
+                  <span id="sortNameUpBtn" class="btn sort-btn sort-up-btn" onclick="sortTasks(this, 'name', 'up')"></span>
+                  <span id="sortNameDownBtn" class="btn sort-btn sort-down-btn"
+                    onclick="sortTasks(this, 'name', 'down')"></span>
                 </span>
               </th>
               <th class="task-des-col">Task Description</th>
               <th class="task-dead-col">
                 <span>Deadline</span>
                 <span class="sort-btn-wrapper">
-                  <span id="sortDeadUpBtn" class="btn sort-btn sort-up-btn"></span>
-                  <span id="sortDeadDownBtn" class="btn sort-btn sort-down-btn"></span>
+                  <span id="sortDeadUpBtn" class="btn sort-btn sort-up-btn" onclick="sortTasks(this, 'deadline', 'up')"></span>
+                  <span id="sortDeadDownBtn" class="btn sort-btn sort-down-btn"
+                    onclick="sortTasks(this, 'deadline', 'down')"></span>
                 </span>
               </th>
               <th class="task-status-col">
                 <span>Status</span>
                 <span class="sort-btn-wrapper">
-                  <span id="sortStatusUpBtn" class="btn sort-btn sort-up-btn"></span>
-                  <span id="sortStatusDownBtn" class="btn sort-btn sort-down-btn"></span>
+                  <span id="sortStatusUpBtn" class="btn sort-btn sort-up-btn" onclick="sortTasks(this, 'status', 'up')"></span>
+                  <span id="sortStatusDownBtn" class="btn sort-btn sort-down-btn"
+                    onclick="sortTasks(this, 'status', 'down')"></span>
                 </span>
               </th>
               <th class="task-opera-col">Operation</th>
@@ -148,8 +152,8 @@
           </div>
           <div class="task-inform">
             <label for="taskDescript">Description</label>
-            <textarea id="taskDescript" class="task-desc-text" name="taskDescript" rows="5" maxlength="200" 
-            placeholder="Please enter task descript, Maximum 200 characters" required></textarea>
+            <textarea id="taskDescript" class="task-desc-text" name="taskDescript" rows="5" maxlength="200"
+              placeholder="Please enter task descript, Maximum 200 characters" required></textarea>
           </div>
         </form>
         <p id="askIfDelete" class="disappear"></p>

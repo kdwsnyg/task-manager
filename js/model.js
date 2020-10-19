@@ -133,7 +133,7 @@ function createTaskItem() {
   let taskDescript = document.getElementById('taskDescript');
 
   let taskItem = {};
-  taskItem.name = taskName.value;
+  taskItem.name = taskName.value.trim();
   taskItem.deadline = taskDeadline.value;
   taskItem.description = taskDescript.value;
   taskItem.status = 'Active';
@@ -142,14 +142,15 @@ function createTaskItem() {
     return;
   }
 
-  let allTasks = getAllTasks() ? getAllTasks() : [];
+  let allTasks = getAllTasks();
   allTasks.push(taskItem);
   taskItem.index = allTasks.indexOf(taskItem) + 1;
 
   saveAllTasks(allTasks);
   closeTaskPanel();
-  showTaskItem(taskItem);
+  showAllTasks();
   countTaskStatus();
+  resetSortBtns();
 }
 
 //显示修改任务信息面板
@@ -220,6 +221,7 @@ function updateTask(index) {
 
     showAllTasks();
     countTaskStatus();
+    resetSortBtns();
   }
 }
 
@@ -260,8 +262,8 @@ function deleteTask(index) {
     
     showAllTasks();
     countTaskStatus();
+    resetSortBtns();
   }
-
 }
 
 //清除页面中所有任务元素
